@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.toggle{
+  background-color: rgb(230, 103, 103);
+  width: 50%;
+  text-align: center;
+  margin: 4px 0;
+  padding-left: 8px;
+}
+
+.toggle.completed{
+  background-color: green;
+}
+
+.para{
+  font-size: 1.2rem;
+}
+.para.completed{
+  color:white;
+  font-size: 1rem;
+}
