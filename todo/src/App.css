@@ -22,7 +22,7 @@
 }
 
 .toggle{
-  background-color: red;
+  background-color: rgb(230, 103, 103);
   width: 50%;
   text-align: center;
   margin: 4px 0;
@@ -31,4 +31,12 @@
 
 .toggle.completed{
   background-color: green;
+}
+
+.para{
+  font-size: 1.2rem;
+}
+.para.completed{
+  color:white;
+  font-size: 1rem;
 }

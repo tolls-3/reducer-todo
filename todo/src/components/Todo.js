@@ -10,7 +10,7 @@ const ToDo = props => {
       }}
     className = {`toggle${props.item.completed ? ' completed' : ''}`}
     >
-      <p>{props.item.name}</p>
+      <p className= {`para${props.item.completed ? ' completed' : ''}`}>{props.item.name}</p>
     </div>
   );
 };
