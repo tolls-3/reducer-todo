@@ -45,32 +45,32 @@ export const reducer = (state, action) => {
 export const initialToDoData = {
   tasks: [
     {
-      item: "Study JavaScript",
+      name: "Study JavaScript",
       completed: false,
       id: 1
     },
     {
-      item: "Exercise",
+      name: "Exercise",
       completed: false,
       id: 12
     },
     {
-      item: "Buy Groceries",
+      name: "Buy Groceries",
       completed: false,
       id: 123
     },
     {
-      item: "Fix car",
+      name: "Fix car",
       completed: false,
       id: 1234
     },
     {
-      item: "Prepare revised invoice",
+      name: "Prepare revised invoice",
       completed: false,
       id: 12345
     },
     {
-      item: "Do laundry",
+      name: "Do laundry",
       completed: false,
       id: 123456
     }

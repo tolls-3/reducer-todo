@@ -1,39 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
-class ToDoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      taskName: ""
-    };
-  }
 
-  changeHandler = e => {
-    this.setState({
-      taskName: e.target.value
-    });
+
+const ToDoForm = (props)=>{
+  const [taskName, setTaskName]= useState("")
+  console.log(props)
+
+ const changeHandler = e => {
+    setTaskName(
+    e.target.value
+  );
     //console.log(e.target);
   };
 
-  submitHandler = e => {
-    this.props.addToDo(e, this.state.taskName);
-    this.setState({ taskName: "" });
+  const submitHandler = e => {
+    props.addToDo(e,taskName);
+    setTaskName( "" );
   };
 
-  render() {
     return (
       <div>
         <input
           type="text"
           name="task"
-          value={this.state.taskName}
-          onChange={this.changeHandler}
+          value={taskName}
+          onChange={changeHandler}
         />
-        <button onClick={this.submitHandler}>Add Task</button>
-        <button onClick={this.props.clearList}>Clear All Task</button>
+        <button onClick={submitHandler}>Add Task</button>
+        <button onClick={props.clearList}>Clear All Task</button>
       </div>
     );
-  }
 }
 
 export default ToDoForm;

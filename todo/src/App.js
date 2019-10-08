@@ -12,7 +12,7 @@ import ToDoList from "./components/TodoList";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialToDoData);
-  //console.log(state.tasks);
+  //console.log(state);
 
   const markToDo = id => {
     dispatch({ type: MARK_TO_DO, payload: id });

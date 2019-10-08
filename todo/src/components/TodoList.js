@@ -3,11 +3,11 @@ import React from "react";
 import ToDo from "./Todo";
 
 const ToDoList = props => {
-  //console.log(props);
+  //console.log(props)
   return (
     <div>
-      {props.toDo.map(item => (
-        <ToDo key={item.id} item={item} markToDo={props.markToDo} />
+      {props.toDo.map(param => (
+        <ToDo key={param.id} item={param} markToDo={props.markToDo} />
       ))}
       <button onClick={props.clearTask}>Clear Task</button>
     </div>
