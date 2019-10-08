@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const ToDoForm = (props)=>{
   const [taskName, setTaskName]= useState("")
-  console.log(props)
+  //console.log(props)
 
  const changeHandler = e => {
     setTaskName(

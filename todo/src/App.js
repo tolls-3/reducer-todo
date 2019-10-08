@@ -9,6 +9,7 @@ import {
 } from "./reducers/reducer";
 import ToDoForm from "./components/TodoForm";
 import ToDoList from "./components/TodoList";
+import './App.css';
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialToDoData);

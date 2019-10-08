@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const ToDo = props => {
   console.log(props)
   return (
@@ -7,6 +8,7 @@ const ToDo = props => {
       onClick={() => {
         props.markToDo(props.item.id);
       }}
+    className = {`toggle${props.item.completed ? ' completed' : ''}`}
     >
       <p>{props.item.name}</p>
     </div>

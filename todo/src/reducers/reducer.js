@@ -4,7 +4,9 @@ export const CLEAR_TASK = "CLEAR_TASK";
 export const CLEAR_ALL_TASKS = "CLEAR_ALL_TASKS";
 
 export const reducer = (state, action) => {
+  //debugger;
   switch (action.type) {
+
     case ADD_ITEM:
       const newTask = {
         id: Date.now(),
@@ -12,8 +14,11 @@ export const reducer = (state, action) => {
         completed: false
       };
       return {
-        tasks: [...state.tasks, newTask]
+       tasks: state.tasks.concat(newTask)
+        // tasks: [...state.tasks, newTask]
       };
+     
+
     case MARK_TO_DO:
       return {
         tasks: state.tasks.map(item => {
@@ -41,6 +46,7 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
 
 export const initialToDoData = {
   tasks: [
