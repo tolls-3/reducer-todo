@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { initialToDoData } from "./reducers/reducer";
 
-function App() {
+const App = () => {
+  const [toDos, setToDos] = useState(initialToDoData);
+
+  const markToDo = id => {
+    //console.log("Test:", id);
+    setToDos(
+      toDos.map(item => {
+        if (item.id !== id) {
+          return item;
+        } else {
+          return { ...item, completed: !item.completed };
+        }
+      })
+    );
+  };
+
+  const clearTask = e => {
+    e.preventDefault();
+    setToDos(
+      toDos.filter(item => {
+        return !item.completed;
+      })
+    );
+  };
+
+  const addToDo = (e, taskName) => {
+    //e.preventDefault();
+    const newTask = {
+      id: Date.now(),
+      name: taskName,
+      completed: false
+    };
+    setToDos([...toDos, newTask]);
+  };
+
+  const clearList = () => {
+    setToDos({
+      toDos: []
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Welcome to your Todo App!</h2>
+      {/* <ToDoForm clearList={this.clearList} addToDo={this.addToDo} /> */}
+      <div>
+        {/* <ToDoList
+            toDo={this.state.initialToDoData}
+            markToDo={this.markToDo}
+            clearTask={this.clearTask}
+          /> */}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
