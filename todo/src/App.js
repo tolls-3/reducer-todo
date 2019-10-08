@@ -1,57 +1,48 @@
-import React, { useState } from "react";
-import { initialToDoData } from "./reducers/reducer";
+import React, { useReducer } from "react";
+import {
+  initialToDoData,
+  reducer,
+  ADD_ITEM,
+  MARK_TO_DO,
+  CLEAR_TASK,
+  CLEAR_ALL_TASKS
+} from "./reducers/reducer";
+import ToDoForm from "./components/TodoForm";
+import ToDoList from "./components/TodoList";
 
 const App = () => {
-  const [toDos, setToDos] = useState(initialToDoData);
+  const [state, dispatch] = useReducer(reducer, initialToDoData);
+  //console.log(state.tasks);
 
   const markToDo = id => {
-    //console.log("Test:", id);
-    setToDos(
-      toDos.map(item => {
-        if (item.id !== id) {
-          return item;
-        } else {
-          return { ...item, completed: !item.completed };
-        }
-      })
-    );
+    dispatch({ type: MARK_TO_DO, payload: id });
   };
 
   const clearTask = e => {
     e.preventDefault();
-    setToDos(
-      toDos.filter(item => {
-        return !item.completed;
-      })
-    );
+    dispatch({ type: CLEAR_TASK });
   };
 
   const addToDo = (e, taskName) => {
-    //e.preventDefault();
-    const newTask = {
-      id: Date.now(),
-      name: taskName,
-      completed: false
-    };
-    setToDos([...toDos, newTask]);
+    e.preventDefault();
+    dispatch({ type: ADD_ITEM, payload: taskName });
   };
 
   const clearList = () => {
-    setToDos({
-      toDos: []
-    });
+    dispatch({ type: CLEAR_ALL_TASKS });
   };
 
   return (
     <div>
       <h2>Welcome to your Todo App!</h2>
-      {/* <ToDoForm clearList={this.clearList} addToDo={this.addToDo} /> */}
+      {/* clearList={clearList} */}
+      <ToDoForm clearList={clearList} addToDo={addToDo} />
       <div>
-        {/* <ToDoList
-            toDo={this.state.initialToDoData}
-            markToDo={this.markToDo}
-            clearTask={this.clearTask}
-          /> */}
+        <ToDoList
+          toDo={state.tasks}
+          markToDo={markToDo}
+          clearTask={clearTask}
+        />
       </div>
     </div>
   );
